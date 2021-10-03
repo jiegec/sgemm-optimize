@@ -7,7 +7,7 @@ OPT =
 CFLAGS = -Wall -DGETTIMEOFDAY -std=c99 $(OPT)
 LDFLAGS = -Wall 
 # mkl is needed for blas implementation
-LDLIBS = /storage/software/libs/hccSPC010B010/openblas/0.3.10/lib/libopenblas.a -lpthread -lm
+LDLIBS = -lopenblas -lpthread -lm
 
 targets = benchmark-test benchmark-naive benchmark-blocked benchmark-blas
 objects = benchmark-test.o benchmark.o sgemm-naive.o sgemm-blocked.o sgemm-blas.o

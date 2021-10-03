@@ -61,8 +61,14 @@ void die (const char* message)
 
 void fill (float* p, int n)
 {
-  for (int i = 0; i < n; ++i)
-    p[i] = 2 * drand48() - 1; // Uniformly distributed over [-1, 1]
+  int tt;
+  float tmp;
+  for (int i = 0; i < n; ++i) {
+    tt = rand();
+    tmp = (float)tt / (float)(RAND_MAX);
+    //printf("%.2lf\n", tmp);
+    p[i] = 2 * tmp - 1; // Uniformly distributed over [-1, 1]
+  }
 }
 
 void absolute_value (float *p, int n)
@@ -77,7 +83,7 @@ int main (int argc, char **argv)
   printf ("Description:\t%s\n\n", sgemm_desc);
 
   /* Test sizes should highlight performance dips at multiples of certain powers-of-two */
-  char initial = randint(1,10);
+  float initial = randint(1,10);
   int test_sizes[] =
 
   /* Multiples-of-32, +/- 1. for final benchmarking. */

@@ -1,0 +1,6 @@
+*.o
+benchmark-naive
+benchmark-test
+benchmark-blas
+benchmark-blocked
+test.out

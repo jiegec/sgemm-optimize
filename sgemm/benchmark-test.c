@@ -11,7 +11,7 @@
 #include <time.h> // For struct timespec, clock_gettime, CLOCK_MONOTONIC
 #endif
 
-/* reference_dgemm wraps a call to the BLAS-3 routine DGEMM, via the standard FORTRAN interface - hence the reference semantics. */
+/* reference_sgemm wraps a call to the BLAS-3 routine DGEMM, via the standard FORTRAN interface - hence the reference semantics. */
 #define SGEMM sgemm_
 extern void SGEMM(char*, char*, int*, int*, int*, float*, float*, int*, float*, int*, float*, float*, int*);
 void reference_sgemm (int N, float ALPHA, float* A, float* B, float* C)
@@ -62,8 +62,14 @@ void die (const char* message)
 
 void fill (float* p, int n)
 {
-  for (int i = 0; i < n; ++i)
-    p[i] = 2 * drand48() - 1; // Uniformly distributed over [-1, 1]
+  int tt;
+  float tmp;
+  for (int i = 0; i < n; ++i) {
+    tt = rand();
+    tmp = (float)tt / (float)(RAND_MAX);
+    //printf("%.2lf\n", tmp);
+    p[i] = 2 * tmp - 1; // Uniformly distributed over [-1, 1]
+  }
 }
 
 void absolute_value (float *p, int n)
@@ -153,7 +159,7 @@ int main (int argc, char **argv)
     absolute_value (C, n * n);
 
     /* C := |C| - 3 * e_mach * n * |A| * |B|, computed with reference_sgemm */
-    reference_sgemm (n, -3.*DBL_EPSILON*n, A, B, C);
+    reference_sgemm (n, -3.*FLT_EPSILON*n, A, B, C);
 
     /* If any element in C is positive, then something went wrong in square_sgemm */
     for (int i = 0; i < n * n; ++i)
