@@ -11,6 +11,16 @@ const char *sgemm_desc = "Simple blocked sgemm.";
  * where C is M-by-N, A is M-by-K, and B is K-by-N. */
 static void do_block(int lda, int M, int N, int K, float *A, float *B, float *C)
 {
+  // pack B to continuous memory in cache
+  float BB[BLOCK_SIZE * BLOCK_SIZE];
+  for (int j = 0; j < N; ++j)
+  {
+    for (int k = 0; k < K; ++k)
+    {
+      BB[k + j * BLOCK_SIZE] = B[k + j * lda];
+    }
+  }
+
   for (int k = 0; k < K; ++k)
   {
     /* For each column j of B */
@@ -21,7 +31,8 @@ static void do_block(int lda, int M, int N, int K, float *A, float *B, float *C)
       {
         /* Compute C(i,j) */
         float cij = C[i + j * lda];
-        cij += A[i + k * lda] * B[k + j * lda];
+        //cij += A[i + k * lda] * B[k + j * lda];
+        cij += A[i + k * lda] * BB[k + j * BLOCK_SIZE];
         C[i + j * lda] = cij;
       }
     }
