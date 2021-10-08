@@ -3,4 +3,5 @@ benchmark-naive
 benchmark-test
 benchmark-blas
 benchmark-blocked
+benchmark-blocked-initial
 test.out
