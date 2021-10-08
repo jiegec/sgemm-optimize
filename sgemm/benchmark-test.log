@@ -1,25 +1,95 @@
+failed to get cpuid string for PMU hisi_sccl7_ddrc0
+failed to get cpuid string for PMU hisi_sccl7_l3c18
+failed to get cpuid string for PMU hisi_sccl3_ddrc1
+failed to get cpuid string for PMU hisi_sccl3_l3c5
+failed to get cpuid string for PMU hisi_sccl5_l3c31
+failed to get cpuid string for PMU hisi_sccl1_l3c14
+failed to get cpuid string for PMU hisi_sccl7_l3c16
+failed to get cpuid string for PMU hisi_sccl3_l3c3
+failed to get cpuid string for PMU hisi_sccl1_hha3
+failed to get cpuid string for PMU hisi_sccl7_hha5
+failed to get cpuid string for PMU hisi_sccl1_l3c9
+failed to get cpuid string for PMU hisi_sccl1_l3c12
+failed to get cpuid string for PMU hisi_sccl5_ddrc2
+failed to get cpuid string for PMU hisi_sccl3_l3c1
+failed to get cpuid string for PMU hisi_sccl1_ddrc3
+failed to get cpuid string for PMU hisi_sccl7_l3c22
+failed to get cpuid string for PMU hisi_sccl5_l3c28
+failed to get cpuid string for PMU hisi_sccl1_l3c10
+failed to get cpuid string for PMU hisi_sccl5_ddrc0
+failed to get cpuid string for PMU hisi_sccl1_ddrc1
+failed to get cpuid string for PMU hisi_sccl7_ddrc3
+failed to get cpuid string for PMU hisi_sccl7_l3c20
+failed to get cpuid string for PMU hisi_sccl5_l3c26
+failed to get cpuid string for PMU hisi_sccl5_hha7
+failed to get cpuid string for PMU hisi_sccl7_ddrc1
+failed to get cpuid string for PMU hisi_sccl7_l3c19
+failed to get cpuid string for PMU hisi_sccl5_l3c24
+failed to get cpuid string for PMU hisi_sccl3_ddrc2
+failed to get cpuid string for PMU hisi_sccl3_hha0
+failed to get cpuid string for PMU hisi_sccl3_l3c6
+failed to get cpuid string for PMU hisi_sccl1_l3c15
+failed to get cpuid string for PMU hisi_sccl7_l3c17
+failed to get cpuid string for PMU hisi_sccl3_ddrc0
+failed to get cpuid string for PMU hisi_sccl3_l3c4
+failed to get cpuid string for PMU hisi_sccl5_l3c30
+failed to get cpuid string for PMU hisi_sccl1_l3c13
+failed to get cpuid string for PMU hisi_sccl5_ddrc3
+failed to get cpuid string for PMU hisi_sccl3_l3c2
+failed to get cpuid string for PMU hisi_sccl1_hha2
+failed to get cpuid string for PMU hisi_sccl7_l3c23
+failed to get cpuid string for PMU hisi_sccl7_hha4
+failed to get cpuid string for PMU hisi_sccl1_l3c8
+failed to get cpuid string for PMU hisi_sccl5_l3c29
+failed to get cpuid string for PMU hisi_sccl1_l3c11
+failed to get cpuid string for PMU hisi_sccl5_ddrc1
+failed to get cpuid string for PMU hisi_sccl3_l3c0
+failed to get cpuid string for PMU hisi_sccl1_ddrc2
+failed to get cpuid string for PMU hisi_sccl7_l3c21
+failed to get cpuid string for PMU hisi_sccl5_l3c27
+failed to get cpuid string for PMU hisi_sccl1_ddrc0
+failed to get cpuid string for PMU hisi_sccl7_ddrc2
+failed to get cpuid string for PMU hisi_sccl5_l3c25
+failed to get cpuid string for PMU hisi_sccl5_hha6
+failed to get cpuid string for PMU hisi_sccl3_ddrc3
+failed to get cpuid string for PMU hisi_sccl3_hha1
+failed to get cpuid string for PMU hisi_sccl3_l3c7
 Description:	Simple blocked sgemm.
 
 Size: 31	Gflop/s: 6.59 (16384 iter, 0.148 seconds)
-Size: 32	Gflop/s: 9.6 (16384 iter, 0.112 seconds)
-Size: 96	Gflop/s: 9.53 (1024 iter, 0.190 seconds)
+Size: 32	Gflop/s: 9.59 (16384 iter, 0.112 seconds)
+Size: 96	Gflop/s: 9.54 (1024 iter, 0.190 seconds)
 Size: 97	Gflop/s: 6.1 (512 iter, 0.153 seconds)
 Size: 127	Gflop/s: 7.17 (256 iter, 0.146 seconds)
-Size: 128	Gflop/s: 9.48 (256 iter, 0.113 seconds)
-Size: 129	Gflop/s: 6.02 (256 iter, 0.182 seconds)
+Size: 128	Gflop/s: 9.5 (256 iter, 0.113 seconds)
+Size: 129	Gflop/s: 6.05 (256 iter, 0.182 seconds)
 Size: 191	Gflop/s: 6.63 (64 iter, 0.135 seconds)
-Size: 192	Gflop/s: 9.48 (128 iter, 0.191 seconds)
-Size: 229	Gflop/s: 6.39 (32 iter, 0.120 seconds)
-Size: 255	Gflop/s: 7.25 (32 iter, 0.146 seconds)
-Size: 256	Gflop/s: 9.4 (32 iter, 0.114 seconds)
+Size: 192	Gflop/s: 9.49 (128 iter, 0.191 seconds)
+Size: 229	Gflop/s: 6.38 (32 iter, 0.121 seconds)
+Size: 255	Gflop/s: 7.24 (32 iter, 0.147 seconds)
+Size: 256	Gflop/s: 9.41 (32 iter, 0.114 seconds)
 Size: 257	Gflop/s: 6.2 (32 iter, 0.175 seconds)
 Size: 319	Gflop/s: 6.57 (16 iter, 0.158 seconds)
-Size: 320	Gflop/s: 9.38 (16 iter, 0.112 seconds)
-Size: 321	Gflop/s: 6.42 (16 iter, 0.165 seconds)
-Size: 417	Gflop/s: 6.46 (8 iter, 0.179 seconds)
-Size: 479	Gflop/s: 6.56 (4 iter, 0.134 seconds)
-Size: 480	Gflop/s: 9.38 (8 iter, 0.189 seconds)
+Size: 320	Gflop/s: 9.42 (16 iter, 0.111 seconds)
+Size: 321	Gflop/s: 6.41 (16 iter, 0.165 seconds)
+Size: 417	Gflop/s: 6.47 (8 iter, 0.179 seconds)
+Size: 479	Gflop/s: 6.57 (4 iter, 0.134 seconds)
+Size: 480	Gflop/s: 9.39 (8 iter, 0.189 seconds)
 Size: 511	Gflop/s: 6.58 (4 iter, 0.162 seconds)
-Size: 512	Gflop/s: 7.77 (4 iter, 0.138 seconds)
-Size: 639	Gflop/s: 6.55 (2 iter, 0.159 seconds)
-Size: 640	Gflop/s: 9.13 (2 iter, 0.115 seconds)
+Size: 512	Gflop/s: 7.97 (4 iter, 0.135 seconds)
+Size: 639	Gflop/s: 6.57 (2 iter, 0.159 seconds)
+Size: 640	Gflop/s: 9.15 (2 iter, 0.115 seconds)
+
+ Performance counter stats for './benchmark-test':
+
+    23,429,443,708      L1-dcache-loads                                             
+        90,312,482      L1-dcache-load-misses     #    0.39% of all L1-dcache hits  
+    19,753,653,558      cycles                                                      
+    60,865,306,469      instructions              #    3.08  insn per cycle         
+
+       7.598740950 seconds time elapsed
+
+       7.597817000 seconds user
+       0.000000000 seconds sys
+
+
