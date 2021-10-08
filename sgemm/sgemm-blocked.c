@@ -9,7 +9,7 @@ const char *sgemm_desc = "Simple blocked sgemm.";
 /* This auxiliary subroutine performs a smaller sgemm operation
  *  C := C + A * B
  * where C is M-by-N, A is M-by-K, and B is K-by-N. */
-static void do_block(int lda, int M, int N, int K, float *A, float *B, float *C)
+static void do_block(int lda, int M, int N, int K, float * restrict A, float * restrict B, float * restrict C)
 {
   // pack B to continuous memory in cache
   float BB[BLOCK_SIZE * BLOCK_SIZE];
@@ -43,7 +43,7 @@ static void do_block(int lda, int M, int N, int K, float *A, float *B, float *C)
  *  C := C + A * B
  * where A, B, and C are lda-by-lda matrices stored in column-major format. 
  * On exit, A and B maintain their input values. */
-void square_sgemm(int lda, float *A, float *B, float *C)
+void square_sgemm(int lda, float * restrict A, float * restrict B, float * restrict C)
 {
   /* For each block-row of A */
   for (int i = 0; i < lda; i += BLOCK_SIZE)
