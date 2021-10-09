@@ -85,6 +85,16 @@ static void do_block_large(int M, int N, int K, int lda, float *restrict A, int 
   for (int i = 0; i < M; i += SMALL_BLOCK_SIZE)
   {
     int MM = min(SMALL_BLOCK_SIZE, M - i);
+
+    // pack A
+    for (int jj = 0; jj < K; jj++)
+    {
+      for (int ii = 0; ii < SMALL_BLOCK_SIZE; ii++)
+      {
+        AA[ii + jj * SMALL_BLOCK_SIZE] = A[(ii + i) + jj * lda];
+      }
+    }
+
     /* For each block-column of C */
     for (int j = 0; j < N; j += SMALL_BLOCK_SIZE)
     {
@@ -93,14 +103,6 @@ static void do_block_large(int M, int N, int K, int lda, float *restrict A, int 
       if (MM == SMALL_BLOCK_SIZE && NN == SMALL_BLOCK_SIZE)
       {
         /* Perform individual block sgemm */
-        // pack A
-        for (int jj = 0; jj < K; jj++)
-        {
-          for (int ii = 0; ii < SMALL_BLOCK_SIZE; ii++)
-          {
-            AA[ii + jj * SMALL_BLOCK_SIZE] = A[(ii + i) + jj * lda];
-          }
-        }
 
         do_block_small(K, SMALL_BLOCK_SIZE, AA, lda, B + 0 + j * lda, lda, C + i + j * lda);
       }
