@@ -1,7 +1,7 @@
 const char *sgemm_desc = "Simple blocked sgemm.";
 
 #if !defined(BLOCK_SIZE)
-#define BLOCK_SIZE 32
+#define BLOCK_SIZE 4
 #endif
 
 #if !defined(SMALL_BLOCK_SIZE)
@@ -13,7 +13,7 @@ const char *sgemm_desc = "Simple blocked sgemm.";
 /* This auxiliary subroutine performs a smaller sgemm operation
  *  C := C + A * B
  * where C is M-by-N, A is M-by-K, and B is K-by-N. */
-static void do_block_generic(int lda, int M, int N, int K, float *restrict A, float *restrict B, float *restrict C)
+static void do_block(int lda, int M, int N, int K, float *restrict A, float *restrict B, float *restrict C)
 {
   /* For each row i of A */
   for (int i = 0; i < M; ++i)
@@ -76,40 +76,6 @@ static void do_block_small(int K, int lda, float *restrict A, int ldb, float *re
   }
 }
 
-// two level blocking
-// A: MxK, B: KxN, C: MxN
-static void do_block_large(int M, int N, int K, int lda, float *restrict A, int ldb, float *restrict B, int ldc, float *restrict C)
-{
-  /* For each block-row of A */
-  for (int i = 0; i < M; i += SMALL_BLOCK_SIZE)
-  {
-    int MM = min(SMALL_BLOCK_SIZE, M - i);
-    /* For each block-column of B */
-    for (int j = 0; j < N; j += SMALL_BLOCK_SIZE)
-    {
-      int NN = min(SMALL_BLOCK_SIZE, N - j);
-
-      if (MM == SMALL_BLOCK_SIZE && NN == SMALL_BLOCK_SIZE)
-      {
-        int K = lda;
-        do_block_small(K, lda, A + i + 0 * lda, lda, B + 0 + j * lda, lda, C + i + j * lda);
-      }
-      else
-      {
-        /* Accumulate block sgemms into block of C */
-        for (int k = 0; k < K; k += SMALL_BLOCK_SIZE)
-        {
-          /* Correct block dimensions if block "goes off edge of" the matrix */
-          int KK = min(SMALL_BLOCK_SIZE, K - k);
-
-          /* Perform individual block sgemm */
-          do_block_generic(lda, MM, NN, KK, A + i + k * lda, B + k + j * lda, C + i + j * lda);
-        }
-      }
-    }
-  }
-}
-
 /* This routine performs a sgemm operation
  *  C := C + A * B
  * where A, B, and C are lda-by-lda matrices stored in column-major format. 
@@ -125,7 +91,23 @@ void square_sgemm(int lda, float *restrict A, float *restrict B, float *restrict
     {
       int N = min(BLOCK_SIZE, lda - j);
 
-      do_block_large(M, N, lda, lda, A + i + 0 * lda, lda, B + 0 + j * lda, lda, C + i + j * lda);
+      if (M == BLOCK_SIZE && N == BLOCK_SIZE)
+      {
+        int K = lda;
+        do_block_small(K, lda, A + i + 0 * lda, lda, B + 0 + j * lda, lda, C + i + j * lda);
+      }
+      else
+      {
+        /* Accumulate block sgemms into block of C */
+        for (int k = 0; k < lda; k += BLOCK_SIZE)
+        {
+          /* Correct block dimensions if block "goes off edge of" the matrix */
+          int K = min(BLOCK_SIZE, lda - k);
+
+          /* Perform individual block sgemm */
+          do_block(lda, M, N, K, A + i + k * lda, B + k + j * lda, C + i + j * lda);
+        }
+      }
     }
   }
 }
