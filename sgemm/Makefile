@@ -14,7 +14,7 @@ targets = benchmark-test sgemm-blocked.S benchmark-naive benchmark-blocked bench
 	benchmark-blocked-two-level benchmark-blocked-small \
 	benchmark-blocked-a benchmark-blocked-a-pack-c benchmark-blocked-a-pack-b \
 	benchmark-blocked-intrinsics benchmark-blocked-intrinsics-8x8 benchmark-blocked-intrinsics-8x8-load \
-	benchmark-blocked-intrinsics-8x8-transpose
+	benchmark-blocked-intrinsics-8x8-transpose benchmark-blocked-intrinsics-8x8-tuning
 objects = benchmark-test.o benchmark.o sgemm-naive.o sgemm-blocked.o sgemm-blas.o
 
 .PHONY : default
