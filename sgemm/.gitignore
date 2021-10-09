@@ -19,6 +19,7 @@ benchmark-blocked-intrinsics-8x8
 benchmark-blocked-intrinsics-8x8-load
 benchmark-blocked-intrinsics-8x8-transpose
 benchmark-blocked-intrinsics-8x8-tuning
+benchmark-blocked-intrinsics-8x8-align
 test.out
 perf.data
 perf.data.old
