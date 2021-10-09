@@ -1,7 +1,10 @@
 *.o
+*.S
 benchmark-naive
 benchmark-test
 benchmark-blas
 benchmark-blocked
 benchmark-blocked-initial
 test.out
+perf.data
+perf.data.old

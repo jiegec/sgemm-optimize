@@ -9,7 +9,7 @@ LDFLAGS = -Wall
 # mkl is needed for blas implementation
 LDLIBS = -lopenblas -lpthread -lm
 
-targets = benchmark-test benchmark-naive benchmark-blocked benchmark-blas benchmark-blocked-initial
+targets = benchmark-test sgemm-blocked.S benchmark-naive benchmark-blocked benchmark-blas benchmark-blocked-initial
 objects = benchmark-test.o benchmark.o sgemm-naive.o sgemm-blocked.o sgemm-blas.o
 
 .PHONY : default
@@ -32,6 +32,9 @@ benchmark-blas : benchmark.o sgemm-blas.o
 
 %.o : %.c
 	$(CC) -c $(CFLAGS) $<
+
+%.S : %.o
+	objdump -S $^ > $@
 
 .PHONY : clean
 clean:
