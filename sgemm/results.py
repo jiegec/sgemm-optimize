@@ -1,4 +1,5 @@
 import glob
+import statistics
 
 res = []
 
@@ -9,10 +10,11 @@ for file in glob.glob('*.log'):
 			if 'Gflop/s' in line:
 				perf = float(line.split(' ')[2])
 				data.append(perf)
-		avg = sum(data) / len(data)
-		res.append((file, avg))
+		avg = statistics.mean(data)
+		stdev = statistics.stdev(data)
+		res.append((file, avg, stdev, len(data)))
 
 res = list(sorted(res, key=lambda k: k[1]))
 
-for file, avg in res:
-	print(f'{file}: {avg:.2f}')
+for file, avg, stdev, count in res:
+	print(f'{file}: {avg:.2f}(stdev={stdev:.2f}) of {count} matrix')
