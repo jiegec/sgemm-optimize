@@ -3,34 +3,12 @@
 const char *sgemm_desc = "Simple blocked sgemm.";
 
 #if !defined(BLOCK_SIZE)
-#define BLOCK_SIZE 128
+#define BLOCK_SIZE 96
 #endif
 
 #define SMALL_BLOCK_SIZE 8
 
 #define min(a, b) (((a) < (b)) ? (a) : (b))
-
-/* This auxiliary subroutine performs a smaller sgemm operation
- *  C := C + A * B
- * where C is M-by-N, A is M-by-K, and B is K-by-N. */
-static void do_block_generic(int lda, int M, int N, int K, float *restrict A, float *restrict B, float *restrict C)
-{
-  for (int k = 0; k < K; ++k)
-  {
-    /* For each column j of B */
-    for (int j = 0; j < N; ++j)
-    {
-      /* For each row i of A */
-      for (int i = 0; i < M; ++i)
-      {
-        /* Compute C(i,j) */
-        float cij = C[i + j * lda];
-        cij += A[i + k * lda] * B[k + j * lda];
-        C[i + j * lda] = cij;
-      }
-    }
-  }
-}
 
 // let compiler optimize for M = N = SMALL_BLOCK_SIZE
 // so that numbers can reside in registers

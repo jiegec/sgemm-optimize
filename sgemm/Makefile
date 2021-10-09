@@ -12,7 +12,7 @@ LDLIBS = -lopenblas -lpthread -lm
 targets = benchmark-test sgemm-blocked.S benchmark-naive benchmark-blocked benchmark-blas \
 	benchmark-blocked-initial benchmark-blocked-loop benchmark-blocked-pack benchmark-blocked-pack-c benchmark-blocked-const \
 	benchmark-blocked-two-level benchmark-blocked-small \
-	benchmark-blocked-a benchmark-blocked-a-pack-c benchmark-blocked-a-pack-b \
+	benchmark-blocked-a benchmark-blocked-a-pack-c benchmark-blocked-a-pack-a benchmark-blocked-a-pack-b \
 	benchmark-blocked-intrinsics benchmark-blocked-intrinsics-8x8 benchmark-blocked-intrinsics-8x8-load \
 	benchmark-blocked-intrinsics-8x8-transpose benchmark-blocked-intrinsics-8x8-tuning benchmark-blocked-intrinsics-8x8-align
 objects = benchmark-test.o benchmark.o sgemm-naive.o sgemm-blocked.o sgemm-blas.o
