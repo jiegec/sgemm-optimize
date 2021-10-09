@@ -1,10 +1,13 @@
 ---
 documentclass:
     - ctexart
+title: sgemm 优化
 mainfont: Source Han Sans
+author: 陈嘉杰 \quad 计研二一 \quad 2021310745
 ---
 
 # sgemm 优化
+
 
 TL; DR: 优化后的 sgemm 在 96 个不同大小的方阵上性能（26.51 GFlops）在平均意义上接近（98.9%） OpenBLAS 实现性能（26.81 GFlops）
 
