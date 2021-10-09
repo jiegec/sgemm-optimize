@@ -56,40 +56,40 @@ failed to get cpuid string for PMU hisi_sccl3_hha1
 failed to get cpuid string for PMU hisi_sccl3_l3c7
 Description:	Simple blocked sgemm.
 
-Size: 31	Gflop/s: 6.59 (16384 iter, 0.148 seconds)
-Size: 32	Gflop/s: 11.2 (32768 iter, 0.192 seconds)
-Size: 96	Gflop/s: 11.2 (1024 iter, 0.161 seconds)
-Size: 97	Gflop/s: 9.48 (1024 iter, 0.197 seconds)
-Size: 127	Gflop/s: 9.6 (256 iter, 0.109 seconds)
-Size: 128	Gflop/s: 11.1 (512 iter, 0.193 seconds)
-Size: 129	Gflop/s: 9.75 (256 iter, 0.113 seconds)
-Size: 191	Gflop/s: 10 (128 iter, 0.178 seconds)
-Size: 192	Gflop/s: 11.2 (128 iter, 0.162 seconds)
-Size: 229	Gflop/s: 10.4 (64 iter, 0.148 seconds)
-Size: 255	Gflop/s: 10.2 (32 iter, 0.104 seconds)
-Size: 256	Gflop/s: 11.1 (64 iter, 0.194 seconds)
-Size: 257	Gflop/s: 10.4 (32 iter, 0.105 seconds)
-Size: 319	Gflop/s: 10.3 (16 iter, 0.100 seconds)
-Size: 320	Gflop/s: 11 (32 iter, 0.190 seconds)
-Size: 321	Gflop/s: 10.4 (16 iter, 0.102 seconds)
-Size: 417	Gflop/s: 10.4 (8 iter, 0.111 seconds)
-Size: 479	Gflop/s: 10.4 (8 iter, 0.169 seconds)
-Size: 480	Gflop/s: 10.9 (8 iter, 0.163 seconds)
-Size: 511	Gflop/s: 10.4 (4 iter, 0.102 seconds)
-Size: 512	Gflop/s: 10.3 (4 iter, 0.104 seconds)
-Size: 639	Gflop/s: 10.4 (2 iter, 0.101 seconds)
-Size: 640	Gflop/s: 10.6 (4 iter, 0.198 seconds)
+Size: 31	Gflop/s: 4.85 (8192 iter, 0.101 seconds)
+Size: 32	Gflop/s: 15.9 (32768 iter, 0.135 seconds)
+Size: 96	Gflop/s: 16 (1024 iter, 0.113 seconds)
+Size: 97	Gflop/s: 12.7 (1024 iter, 0.148 seconds)
+Size: 127	Gflop/s: 10.3 (256 iter, 0.102 seconds)
+Size: 128	Gflop/s: 15.9 (512 iter, 0.135 seconds)
+Size: 129	Gflop/s: 13.1 (512 iter, 0.168 seconds)
+Size: 191	Gflop/s: 11.5 (128 iter, 0.155 seconds)
+Size: 192	Gflop/s: 15.9 (128 iter, 0.114 seconds)
+Size: 229	Gflop/s: 12.4 (64 iter, 0.124 seconds)
+Size: 255	Gflop/s: 12.4 (64 iter, 0.171 seconds)
+Size: 256	Gflop/s: 15.8 (64 iter, 0.136 seconds)
+Size: 257	Gflop/s: 14.2 (64 iter, 0.153 seconds)
+Size: 319	Gflop/s: 12.7 (32 iter, 0.164 seconds)
+Size: 320	Gflop/s: 15.7 (32 iter, 0.133 seconds)
+Size: 321	Gflop/s: 14.2 (32 iter, 0.149 seconds)
+Size: 417	Gflop/s: 14.4 (16 iter, 0.161 seconds)
+Size: 479	Gflop/s: 13.4 (8 iter, 0.131 seconds)
+Size: 480	Gflop/s: 15.5 (8 iter, 0.114 seconds)
+Size: 511	Gflop/s: 13.4 (8 iter, 0.159 seconds)
+Size: 512	Gflop/s: 14.4 (8 iter, 0.149 seconds)
+Size: 639	Gflop/s: 13.6 (4 iter, 0.154 seconds)
+Size: 640	Gflop/s: 15.1 (4 iter, 0.139 seconds)
 
  Performance counter stats for './benchmark-test':
 
-    20,574,684,963      L1-dcache-loads                                             
-       107,933,580      L1-dcache-load-misses     #    0.52% of all L1-dcache hits  
-    19,215,908,492      cycles                                                      
-    38,671,586,940      instructions              #    2.01  insn per cycle         
+    16,584,573,704      L1-dcache-loads                                             
+        77,078,603      L1-dcache-load-misses     #    0.46% of all L1-dcache hits  
+    18,533,203,901      cycles                                                      
+    34,123,542,498      instructions              #    1.84  insn per cycle         
 
-       7.391936840 seconds time elapsed
+       7.129379090 seconds time elapsed
 
-       7.391012000 seconds user
+       7.128428000 seconds user
        0.000000000 seconds sys
 
 
