@@ -9,7 +9,10 @@ LDFLAGS = -Wall
 # mkl is needed for blas implementation
 LDLIBS = -lopenblas -lpthread -lm
 
-targets = benchmark-test sgemm-blocked.S benchmark-naive benchmark-blocked benchmark-blas benchmark-blocked-initial
+targets = benchmark-test sgemm-blocked.S benchmark-naive benchmark-blocked benchmark-blas \
+	benchmark-blocked-initial benchmark-blocked-loop benchmark-blocked-pack benchmark-blocked-pack-c benchmark-blocked-const \
+	benchmark-blocked-two-level benchmark-blocked-small benchmark-blocked-a benchmark-blocked-a-pack-c \
+	benchmark-blocked-a-pack-b
 objects = benchmark-test.o benchmark.o sgemm-naive.o sgemm-blocked.o sgemm-blas.o
 
 .PHONY : default
@@ -25,7 +28,7 @@ benchmark-naive : benchmark.o sgemm-naive.o
 	$(CC) -o $@ $^ $(LDLIBS)
 benchmark-blocked : benchmark.o sgemm-blocked.o
 	$(CC) -o $@ $^ $(LDLIBS)
-benchmark-blocked-initial : benchmark.o sgemm-blocked-initial.o
+benchmark-blocked-% : benchmark.o sgemm-blocked-%.o
 	$(CC) -o $@ $^ $(LDLIBS)
 benchmark-blas : benchmark.o sgemm-blas.o
 	$(CC) -o $@ $^ $(LDLIBS)

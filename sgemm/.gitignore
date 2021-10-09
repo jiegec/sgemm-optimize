@@ -5,6 +5,15 @@ benchmark-test
 benchmark-blas
 benchmark-blocked
 benchmark-blocked-initial
+benchmark-blocked-loop
+benchmark-blocked-pack
+benchmark-blocked-pack-c
+benchmark-blocked-const
+benchmark-blocked-two-level
+benchmark-blocked-small
+benchmark-blocked-a
+benchmark-blocked-a-pack-c
+benchmark-blocked-a-pack-b
 test.out
 perf.data
 perf.data.old
