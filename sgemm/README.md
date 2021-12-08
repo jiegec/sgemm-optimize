@@ -13,7 +13,7 @@ TL; DR: 优化后的 sgemm 在 96 个不同大小的方阵上性能（26.51 GFlo
 
 ## 理论分析
 
-首先考虑 Kunpeng 920 的 CPU 型号 TaiShan 的理论但精度峰值性能：2.6 GHz * 2 FIPC * 4 S-FMA * 2 = 41.6GFlops，其中各项含义如下：
+首先考虑 Kunpeng 920 的 CPU 型号 TaiShan 的理论单精度峰值性能：2.6 GHz * 2 FIPC * 4 S-FMA * 2 = 41.6GFlops，其中各项含义如下：
 
 1. 主频：2.6GHz
 2. 浮点指令的吞吐率：2 Floating IPC
