@@ -3,8 +3,8 @@
 # Your code must compile (with icc) with the given CFLAGS. You may experiment with the OPT variable to invoke additional compiler options.
 
 CC = gcc
-OPT = -O3 -Ofast -march=native -mcpu=tsv110 -mtune=tsv110
-CFLAGS = -Wall -DGETTIMEOFDAY -std=c99 $(OPT)
+OPT = -O3 -Ofast -march=native # -mcpu=tsv110 -mtune=tsv110
+CFLAGS = -Wall -DGETTIMEOFDAY -std=c99 $(OPT) -I./simde
 LDFLAGS = -Wall 
 # mkl is needed for blas implementation
 LDLIBS = -lopenblas -lpthread -lm

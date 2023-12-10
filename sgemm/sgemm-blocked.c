@@ -1,4 +1,6 @@
-#include <arm_neon.h>
+#define SIMDE_ENABLE_NATIVE_ALIASES
+#include "simde/arm/neon.h"
+#include "simde/arm/neon/mla_lane.h"
 
 const char *sgemm_desc = "Simple blocked sgemm.";
 

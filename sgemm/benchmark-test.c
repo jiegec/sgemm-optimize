@@ -7,6 +7,7 @@
 
 #ifdef GETTIMEOFDAY
 #include <sys/time.h> // For struct timeval, gettimeofday
+#include <time.h> // For time()
 #else
 #include <time.h> // For struct timespec, clock_gettime, CLOCK_MONOTONIC
 #endif
